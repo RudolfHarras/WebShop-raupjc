@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Product>
+
+@{
+    ViewBag.Title = "Svi proizvodi";
+    Layout = "_Layout";
+}
+
+<table class="table table-striped table-bordered table-condensed">
+    <tr>
+        <th class="text-right">Šifra</th>
+        <th>Ime</th>
+        <th>Kategorija</th>
+        <th class="text-right">Cijena</th>
+        <th class="text-center">Radnje</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td class="text-right">@item.ProductId</td>
+            <td>@item.Name</td>
+            <td>@item.Category</td>
+            <td class="text-right">@item.Price.ToString("c")</td>
+            <td class="text-center">
+                <form asp-action="Delete" method="post">
+                    <a asp-action="Edit" class="btn btn-sm btn-warning"
+                       asp-route-productId="@item.ProductId">
+                        Uredi
+                    </a>
+                    <input type="hidden" name="ProductId" value="@item.ProductId" />
+                    <button type="submit" class="btn btn-danger btn-sm">
+                        Obriši
+                    </button>
+                </form>
+            </td>
+        </tr>
+    }
+</table>
+<div class="text-center">
+    <a asp-action="Create" class="btn btn-primary">Dodaj proizvod</a>
+    <a asp-controller="Upload" asp-action="UploadFile" class="btn btn-primary"> Dodavanje slike</a>
+</div>

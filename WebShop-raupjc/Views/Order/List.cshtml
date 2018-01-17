@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Order>
+
+@{
+    ViewBag.Title = "Narudžbe";
+    Layout = "_Layout";
+}
+
+@if (Model.Any())
+{
+
+    <table class="table table-bordered table-striped">
+        <tr><th>Ime</th>
+            <th>Zamotati?</th>
+            <th>Adresa</th>
+            <th colspan="2">Informacije</th>
+            <th></th>
+        </tr>
+        
+        @foreach (Order o in Model)
+        {
+            <tr>
+                <td><b>@o.Name</b></td>
+                @if (o.GiftWrap)
+                {
+                    <td><b>Da</b></td>
+                }
+                else
+                {
+                    <td><b>Ne</b></td>
+                }
+
+                <th>@o.Country, @o.City, @o.Address (@o.Zip)</th>
+                <th>Artikli u narudžbi</th>
+                <th>Komada</th>
+                <td>
+                    <form asp-action="MarkShipped" method="post">
+                        <input type="hidden" name="orderId" value="@o.OrderId" />
+                        <button type="submit" class="btn btn-sm btn-danger">
+                            Pošalji
+                        </button>
+                    </form>
+                </td>
+            </tr>
+            foreach (CartLine line in o.Lines)
+            {
+                <tr>
+                    <td colspan="2"></td>
+                    <td></td>
+                    <td>@line.Product.Name</td>
+                    <td>@line.Quantity</td>
+                    <td></td>
+                </tr>
+
+            }
+        }
+    </table>
+}
+else
+{
+    <div class="text-center">Sve narudžbe su poslane!</div>
+}

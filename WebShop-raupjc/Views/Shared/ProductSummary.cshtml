@@ -1,0 +1,16 @@
+﻿@using WebShop_raupjc.Extensions
+@model Product
+
+    <div class="well">
+        <h3>
+            <strong>
+                <a asp-controller="Product" asp-action="Info" asp-route-productId="@Model.ProductId">
+                    <img src="Photos/@(Model.Name).jpg" height="200" width="200"/>
+                </a>
+                @Model.Name
+            </strong> 
+            <span class="pull-right label label-primary">
+                @Model.Price.ToString("c")
+            </span>
+        </h3>
+</div>

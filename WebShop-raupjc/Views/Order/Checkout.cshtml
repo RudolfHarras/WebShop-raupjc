@@ -1,0 +1,32 @@
+﻿@model Order
+
+<h2>Zaključenje narudžbe</h2>
+<p>Unesite podatke i poslat ćemo Vašu narudžbu u najkraćeg mogućem roku.</p>
+<div asp-validation-summary="All" class="text-danger"></div>
+<form asp-action="Checkout" method="post">
+    <h3>Moji podatci</h3>
+    <div class="form-group">
+        <label>Ime:</label><input asp-for="Name" class="form-control" />
+    </div>
+    <h4>Adresa</h4>
+    <div class="form-group">
+        <label>Ulica:</label><input asp-for="Address" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Grad:</label><input asp-for="City" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Poštanski broj:</label><input asp-for="Zip" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Država:</label><input asp-for="Country" class="form-control" />
+    </div>
+    <div class="checkbox">
+        <label>
+            <input asp-for="GiftWrap" /> Želite li da narudžba bude zamotana (kao poklon)?
+        </label>
+    </div>
+    <div class="text-center">
+        <input class="btn btn-primary" type="submit" value="Završi" />
+    </div>
+</form>
