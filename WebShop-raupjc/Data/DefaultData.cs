@@ -28,7 +28,7 @@ namespace WebShop_raupjc.Models
 
 				new Product
 				{
-					Name = "Unicorn Eclipse HD2",
+					Name = "Unicorn Eclipse Pro HD2",
 					Description = "Meta za pikado koja se koristi u PDC turnirima",
 					Category = "Mete",
 					Price = 400
