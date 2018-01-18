@@ -31,14 +31,13 @@ namespace WebShop_raupjc
 
 		public void ConfigureServices(IServiceCollection services)
 		{
-
 			services.AddDbContext<ApplicationDbContext>(options =>
 				options.UseSqlServer(
 					_configuration["ConnectionStrings:WebshopArtikl"]));
 
 			services.AddDbContext<AppIdentityDbContext>(options =>
 				options.UseSqlServer(
-					_configuration["ConnectionStrings:WebshopKorisnici"]));
+					_configuration["ConnectionStrings:WebshopArtikl"]));
 
 			services.AddIdentity<ApplicationUser, IdentityRole>(options =>
 				{
@@ -67,13 +66,14 @@ namespace WebShop_raupjc
 			services.AddMemoryCache();
 			services.AddSession();
 
+			CreateRoles(services.BuildServiceProvider()).Wait();
+
+
 		}
 
 		public void Configure(IApplicationBuilder app, IHostingEnvironment env,
 							  ILoggerFactory loggerFactory, IServiceProvider serviceProvider)
 		{
-
-			CreateRoles(serviceProvider);
 			if (env.IsDevelopment())
 			{
 				app.UseDeveloperExceptionPage();
