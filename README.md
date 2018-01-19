@@ -3,7 +3,7 @@
 Ovaj projekt napravljen je u sklopu vještine Razvoj aplikacija u programskom jeziku C# u akademskoj godini 2017./2018.
 Tema projekta je webshop koji prodaje opremu za pikado. Pregledavanje ponude i dodavanje artikala u košaricu moguće su i bez prijave.
 Za zaključenje ili dodatno mijenjanje košarice potrebno se prijaviti na stranicu (moguće preko lokalnog profila ili preko Facebooka).
-
+Stranica se nalazi na adresu https://pikadoducantg.azurewebsites.net/
 
 
 Napomene
