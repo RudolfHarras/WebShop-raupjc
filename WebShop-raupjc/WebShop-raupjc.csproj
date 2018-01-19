@@ -43,10 +43,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\Photos\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="wwwroot\Photos\DefaultSlika.jpg" />
   </ItemGroup>
 
